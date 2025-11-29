@@ -1,0 +1,61 @@
+.mol-info {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+}
+
+.mol-info.empty {
+  text-align: center;
+  color: #777;
+}
+
+.mol-title {
+  color: #222;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.mol-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.mol-row.small {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+}
+
+.value {
+  color: #222;
+}
+
+.formula sub {
+  font-size: 0.8em;
+}
+
+.extra-section {
+  margin-top: 20px;
+}
+
+.extra-section h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.extra-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #333;
+}

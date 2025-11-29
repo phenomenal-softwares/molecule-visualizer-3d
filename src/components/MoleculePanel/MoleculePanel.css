@@ -1,0 +1,53 @@
+.mol-panel {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Tabs */
+.mol-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mol-tabs button {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.mol-tabs button.active {
+  background: #1b4dd8;
+  color: white;
+  border-color: #1b4dd8;
+}
+
+.mol-tabs button:hover:not(.active) {
+  background: #ececec;
+}
+
+/* --- Animated Content --- */
+
+.mol-content {
+  position: relative;
+  min-height: 150px;
+}
+
+/* animation wrapper */
+.animated {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(8px);
+}
