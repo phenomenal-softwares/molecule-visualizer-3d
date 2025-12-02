@@ -19,7 +19,7 @@ export async function resolveCID(name) {
 export async function fetchMetadata(cid) {
   try {
     const url = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/` +
-                `MolecularFormula,MolecularWeight,IUPACName,CanonicalSMILES,InChI,InChIKey/JSON`;
+                `MolecularFormula,MolecularWeight,IUPACName,Title/JSON`;
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Metadata not found");

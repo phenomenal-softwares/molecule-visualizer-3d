@@ -1,10 +1,84 @@
-body {
+@import "./colors.css";
+
+/* Reset & Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  background: azure;
-  padding: 20px;
-  overflow-x: hidden;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.8rem 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
 }

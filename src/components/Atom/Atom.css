@@ -1,0 +1,111 @@
+:root {
+  --orbit-size: 20vmin;
+  --electron-size: calc(var(--orbit-size) / 10);
+  --core-size: calc(var(--orbit-size) / 5);
+}
+
+@keyframes circum-move {
+  from {
+    transform: rotateZ(0) translateX(var(--orbit-size)) rotateZ(0)
+      rotateY(-70deg);
+  }
+  to {
+    transform: rotateZ(360deg) translateX(var(--orbit-size)) rotateZ(-360deg)
+      rotateY(-70deg);
+  }
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Shared element styling */
+.atom,
+.orbit,
+.electron,
+.core {
+  position: relative;
+}
+
+.atom {
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  position: relative;
+  margin: auto;
+}
+
+.core {
+  width: var(--core-size);
+  height: var(--core-size);
+  border-radius: 50%;
+  background: radial-gradient(circle at 10px 10px, red, black);
+  position: absolute;
+  top: 11rem;
+  left: 11rem;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.orbit {
+  width: calc(var(--orbit-size) * 2);
+  height: calc(var(--orbit-size) * 2);
+  border: 3px solid darkgrey;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+.orbit .electron {
+  width: var(--electron-size);
+  height: var(--electron-size);
+  border-radius: 50%;
+  background: radial-gradient(circle at 10px 10px, royalblue, midnightblue);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  animation: circum-move linear infinite;
+}
+
+/* Rotate orbits and stagger animation speeds */
+.orbit:nth-child(1) {
+  transform: rotateZ(60deg) rotateY(70deg);
+}
+.orbit:nth-child(1) .electron {
+  animation-duration: 1.2s;
+}
+
+.orbit:nth-child(2) {
+  transform: rotateZ(120deg) rotateY(70deg);
+}
+.orbit:nth-child(2) .electron {
+  animation-duration: 2.4s;
+}
+
+.orbit:nth-child(3) {
+  transform: rotateZ(180deg) rotateY(70deg);
+}
+.orbit:nth-child(3) .electron {
+  animation-duration: 3.6s;
+}
+
+/* Optional: smooth scaling on smaller screens */
+@media (max-width: 768px) {
+  :root {
+    --orbit-size: 15vmin;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --orbit-size: 12vmin;
+  }
+}

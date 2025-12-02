@@ -1,6 +1,5 @@
 import "./MoleculeInfo.css";
 
-// Convert "C6H12O6" → "C₆H₁₂O₆"
 function formatFormula(formula) {
   if (!formula) return "";
   return formula.replace(/([0-9]+)/g, "<sub>$1</sub>");
@@ -15,11 +14,16 @@ export default function MoleculeInfo({ metadata }) {
     );
   }
 
-  const { formula, weight, iupac, cid } = metadata;
+  const { title, formula, weight, iupac } = metadata;
 
   return (
     <div className="mol-info">
       <h2 className="mol-title">Molecular Information</h2>
+
+      <div className="mol-row">
+        <span className="label">Common Name:</span>
+        <span className="value">{title || "—"}</span>
+      </div>
 
       <div className="mol-row">
         <span className="label">IUPAC Name:</span>
@@ -27,7 +31,7 @@ export default function MoleculeInfo({ metadata }) {
       </div>
 
       <div className="mol-row">
-        <span className="label">Formula:</span>
+        <span className="label">Chemical Formula:</span>
         <span
           className="value"
           dangerouslySetInnerHTML={{ __html: formatFormula(formula) }}
@@ -37,11 +41,6 @@ export default function MoleculeInfo({ metadata }) {
       <div className="mol-row">
         <span className="label">Molecular Weight:</span>
         <span className="value">{weight ? `${weight} g/mol` : "—"}</span>
-      </div>
-
-      <div className="mol-row">
-        <span className="label">PubChem CID:</span>
-        <span className="value">{cid || "—"}</span>
       </div>
     </div>
   );

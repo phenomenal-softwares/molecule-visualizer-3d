@@ -4,8 +4,10 @@ import { parseMolecule } from "../utils/parseMolecule";
 import MoleculePanel from "../components/MoleculePanel/MoleculePanel";
 import MoleculeViewer from "../components/MoleculeViewer";
 import MoleculeInfo from "../components/MoleculeInfo/MoleculeInfo";
+import MoleculeModal from "../components/MoleculeModal/MoleculeModal";
+import Atom from "../components/Atom/Atom";
 
-import { FiSearch, FiAlertCircle, FiLoader } from "react-icons/fi";
+import { FiSearch, FiAlertCircle, FiLoader, FiGrid } from "react-icons/fi";
 import "./Home.css";
 
 export default function Home() {
@@ -14,11 +16,13 @@ export default function Home() {
   const [structure, setStructure] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
 
   const viewerRef = useRef(null);
 
-  const handleSearch = async () => {
-    if (!input.trim()) return;
+  const handleSearch = async (query) => {
+    const searchTerm = query || input;
+    if (!searchTerm.trim()) return;
 
     setLoading(true);
     setError("");
@@ -26,8 +30,7 @@ export default function Home() {
     setStructure(null);
 
     try {
-      const result = await fetchFullMolecule(input.trim());
-
+      const result = await fetchFullMolecule(searchTerm.trim());
       if (!result) {
         setError("Molecule not found. Try another name.");
         setLoading(false);
@@ -44,11 +47,10 @@ export default function Home() {
           formula: result.metadata.MolecularFormula || "-",
           weight: result.metadata.MolecularWeight || "-",
           iupac: result.metadata.IUPACName || "-",
-          cid: result.metadata.CID || "-", // include CID if available
+          title: result.metadata.Title || "-",
         });
       }
 
-      // Scroll to viewer section
       setTimeout(() => {
         viewerRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 200);
@@ -84,12 +86,20 @@ export default function Home() {
             onKeyDown={handleKeyPress}
           />
 
-          <button onClick={handleSearch} disabled={loading}>
+          <button onClick={() => handleSearch()} disabled={loading}>
             {loading ? <FiLoader className="spin" /> : "Load"}
+          </button>
+
+          {/* Modal trigger */}
+          <button
+            className="modal-trigger-btn"
+            onClick={() => setModalOpen(true)}
+            title="Pick from list"
+          >
+            <FiGrid size={22} />
           </button>
         </div>
 
-        {/* Error Box */}
         {error && (
           <div className="error-box">
             <FiAlertCircle className="error-icon" />
@@ -100,15 +110,27 @@ export default function Home() {
 
       {/* Viewer + Metadata Section */}
       <div ref={viewerRef} className="viewer-section">
-        {(metadata || structure) && (
+        {structure || metadata ? (
           <MoleculePanel
             structure={
               structure ? <MoleculeViewer moleculeData={structure} /> : null
             }
             metadata={metadata ? <MoleculeInfo metadata={metadata} /> : null}
           />
+        ) : (
+          <Atom />
         )}
       </div>
+
+      {/* Molecule Modal */}
+      <MoleculeModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSelect={(name) => {
+          setInput(name);
+          handleSearch(name);
+        }}
+      />
     </div>
   );
 }

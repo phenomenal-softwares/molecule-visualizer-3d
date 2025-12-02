@@ -1,0 +1,22 @@
+:root {
+  /* Primary theme colors */
+  --primary: #0288D1;       /* deep sky blue */
+  --secondary: #00BFA5;     /* teal-ish green */
+  --accent: #FFCA28;        /* gold-ish highlight */
+  --highlight: #7E57C2;     /* purple accent */
+
+  /* Text colors */
+  --text-primary: #212121;  /* almost black */
+  --text-secondary: #616161;
+
+  /* Backgrounds */
+  --background: #F5F5F5;
+
+  /* Gradients */
+  --gradient1: linear-gradient(45deg, #0288D1, #00BFA5);
+  --gradient2: linear-gradient(45deg, #7E57C2, #FFCA28);
+
+  /* Misc */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+}
