@@ -9,7 +9,7 @@ export default function MoleculeModal({ open, onClose, onSelect }) {
     <div className="modal-overlay">
       <div className="modal-content">
         <div className="modal-header">
-          <h2>Pick a Molecule</h2>
+          <h2>Popular Molecules</h2>
           <button className="close-btn" onClick={onClose}>
             <FiX size={24} />
           </button>

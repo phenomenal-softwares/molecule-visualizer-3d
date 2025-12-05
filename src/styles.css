@@ -2,6 +2,9 @@
    GLOBAL PAGE BACKDROP — Chemistry gradient in motion
 --------------------------------------------------------- */
 body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   background: var(--background);
   background: linear-gradient(
       135deg,

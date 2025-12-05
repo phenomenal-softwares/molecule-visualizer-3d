@@ -13,7 +13,9 @@ export default function SplashScreen({ onFinish }) {
 
   return (
     <div className="splash-container">
-      <Atom />
+      <div className="logo-wrapper">
+        <Atom />
+      </div>
       <h1 className="app-name">MoleculeVisualizer3D</h1>
       <p className="company-name">Phenomenal</p>
     </div>

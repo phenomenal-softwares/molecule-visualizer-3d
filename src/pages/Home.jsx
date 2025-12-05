@@ -68,42 +68,44 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h1 className="app-title">Molecule Visualizer 3D</h1>
-      <p className="subtitle">
-        Type a compound name and explore its structure in 3D
-      </p>
+      <div className="top-area">
+        <h1 className="app-title">Molecule Visualizer 3D</h1>
+        <p className="subtitle">
+          Type a molecule name and explore its structure in 3D
+        </p>
 
-      {/* Search Section */}
-      <div className="search-box">
-        <div className="search-input-wrapper">
-          <input
-            type="text"
-            placeholder="Enter molecule name or CID…"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyPress}
-          />
+        {/* Search Section */}
+        <div className="search-box">
+          <div className="search-input-wrapper">
+            <input
+              type="text"
+              placeholder="Enter molecule name or CID…"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyPress}
+            />
 
-          <button onClick={() => handleSearch()} disabled={loading}>
-            {loading ? <FiLoader className="spin" /> : "Load"}
-          </button>
+            <button className="load-btn" onClick={() => handleSearch()} disabled={loading}>
+              {loading ? <FiLoader className="spin" /> : "Load"}
+            </button>
 
-          {/* Modal trigger */}
-          <button
-            className="modal-trigger-btn"
-            onClick={() => setModalOpen(true)}
-            title="Pick from list"
-          >
-            <FiGrid size={22} />
-          </button>
-        </div>
-
-        {error && (
-          <div className="error-box">
-            <FiAlertCircle className="error-icon" />
-            {error}
+            {/* Modal trigger */}
+            <button
+              className="modal-trigger-btn"
+              onClick={() => setModalOpen(true)}
+              title="Pick from list"
+            >
+              <FiGrid size={22} />
+            </button>
           </div>
-        )}
+
+          {error && (
+            <div className="error-box">
+              <FiAlertCircle className="error-icon" />
+              {error}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Viewer + Metadata Section */}

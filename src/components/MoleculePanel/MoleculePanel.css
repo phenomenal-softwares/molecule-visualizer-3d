@@ -6,6 +6,8 @@
 /* Tabs */
 .mol-tabs {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-bottom: 15px;
 }
@@ -13,7 +15,8 @@
 .mol-tabs button {
   padding: 8px 18px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: none;
+  outline: none;
   background: #f7f7f7;
   cursor: pointer;
   font-weight: 500;
@@ -21,9 +24,9 @@
 }
 
 .mol-tabs button.active {
-  background: #1b4dd8;
+  background: var(--primary);
   color: white;
-  border-color: #1b4dd8;
+  border-color: var(--primary);
 }
 
 .mol-tabs button:hover:not(.active) {

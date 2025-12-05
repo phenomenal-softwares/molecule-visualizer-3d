@@ -36,6 +36,9 @@
 
 .modal-grid {
   display: grid;
+  height: 90vh;
+  padding: 10px;
+  overflow: scroll;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 12px;
 }

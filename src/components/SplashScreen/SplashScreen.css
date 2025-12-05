@@ -1,19 +1,10 @@
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes spark {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
 .splash-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   padding: 1rem;
   background: var(--gradient1);
   color: white;
@@ -25,66 +16,41 @@
 
 .logo-wrapper {
   width: 25vw;
-  max-width: 150px;
   height: 25vw;
-  max-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.logo-icon {
-  font-size: 15vw;
-  color: var(--accent);
-  animation: spin 2s linear infinite, spark 1.5s ease-in-out infinite;
-}
-
 .app-name {
-  font-size: 6vw;
+  font-size: 2rem;
   font-weight: bold;
   background: var(--gradient2);
   -webkit-background-clip: text;
-   background-clip: text;
- -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .company-name {
+  font-family: "Courier New", Courier, monospace;
   font-size: 3vw;
   color: rgba(255, 255, 255, 0.85);
 }
 
 /* Responsiveness tweaks */
 @media (max-width: 768px) {
-  .logo-wrapper {
-    width: 30vw;
-    height: 30vw;
-  }
-
-  .logo-icon {
-    font-size: 20vw;
-  }
-
   .app-name {
-    font-size: 8vw;
+    font-size: 4vw;
   }
 
   .company-name {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 }
 
 @media (max-width: 480px) {
-  .logo-wrapper {
-    width: 35vw;
-    height: 35vw;
-  }
-
-  .logo-icon {
-    font-size: 25vw;
-  }
-
   .app-name {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 
   .company-name {
