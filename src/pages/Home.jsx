@@ -79,7 +79,7 @@ export default function Home() {
           <div className="search-input-wrapper">
             <input
               type="text"
-              placeholder="Enter molecule name or CID…"
+              placeholder="E.g. Aspirin, Caffeine, Glucose"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
