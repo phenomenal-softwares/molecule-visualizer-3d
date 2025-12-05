@@ -7,7 +7,7 @@ import MoleculeInfo from "../components/MoleculeInfo/MoleculeInfo";
 import MoleculeModal from "../components/MoleculeModal/MoleculeModal";
 import Atom from "../components/Atom/Atom";
 
-import { FiSearch, FiAlertCircle, FiLoader, FiGrid } from "react-icons/fi";
+import { FiAlertCircle, FiLoader, FiGrid } from "react-icons/fi";
 import "./Home.css";
 
 export default function Home() {
@@ -76,8 +76,6 @@ export default function Home() {
       {/* Search Section */}
       <div className="search-box">
         <div className="search-input-wrapper">
-          <FiSearch className="search-icon" />
-
           <input
             type="text"
             placeholder="Enter molecule name or CID…"

@@ -15,19 +15,13 @@
   }
 }
 
-.container {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* Shared element styling */
 .atom,
 .orbit,
 .electron,
 .core {
   position: relative;
+  box-sizing: border-box;
 }
 
 .atom {
@@ -35,6 +29,9 @@
   height: var(--orbit-size);
   position: relative;
   margin: auto;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  right: 15%;
 }
 
 .core {
@@ -43,8 +40,8 @@
   border-radius: 50%;
   background: radial-gradient(circle at 10px 10px, red, black);
   position: absolute;
-  top: 11rem;
-  left: 11rem;
+  top: 150%;
+  left: 150%;
   transform: translate(-50%, -50%);
   z-index: 10;
 }
